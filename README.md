@@ -297,3 +297,96 @@ Let’s say the company wants to launch a new **“15-minute delivery”** featu
 - **JIRA** acts as the central hub for planning, tracking, and collaborating on every task, ensuring nothing falls through the cracks and everyone stays aligned.
 - End of Day 2 !!
 
+
+# DevOps Zero to Hero – Day 3: Virtual Machines (Part 1)  
+**Comprehensive Notes by Abhishek Veeramalla**
+
+---
+
+## 1. Introduction to Virtual Machines
+
+- **What is a Virtual Machine (VM)?**
+  - A VM is a software-based emulation of a physical computer.
+  - It runs its own operating system (OS) and applications just like a physical computer.
+- **Why Use VMs?**
+  - **Resource Optimization:** Multiple VMs can run on a single physical server, making better use of hardware resources.
+  - **Isolation:** Each VM is isolated from others, so issues in one VM do not affect others.
+  - **Flexibility:** Easy to create, modify, and delete VMs as needed.
+  - **Testing & Development:** Safe environment for testing new software or configurations.
+
+---
+
+## 2. Understanding Servers
+
+- **What is a Server?**
+  - A server is a computer or system that provides resources, data, or services to other computers (clients) over a network.
+- **Physical Servers vs. Virtual Machines**
+  - **Physical Servers:** Actual hardware machines dedicated to a single purpose.
+  - **Virtual Machines:** Software-based servers running on a physical host, sharing its resources.
+- **Benefits of Virtualization:**
+  - **Cost Savings:** Fewer physical machines needed.
+  - **Scalability:** Easily add more VMs as demand grows.
+  - **Disaster Recovery:** VMs can be backed up and restored quickly.
+
+---
+
+## 3. Virtualization Concepts
+
+- **Hypervisor**
+  - The software layer that enables virtualization.
+  - **Types of Hypervisors:**
+    - **Type 1 (Bare Metal):** Runs directly on the host’s hardware (e.g., VMware ESXi, Microsoft Hyper-V).
+    - **Type 2 (Hosted):** Runs on top of a conventional OS (e.g., Oracle VirtualBox, VMware Workstation).
+- **Virtual Machine Manager (VMM)**
+  - Another term for the hypervisor.
+  - Manages the creation, operation, and deletion of VMs.
+
+---
+
+## 4. Real-World Example: Why Virtualization Matters
+
+- **Scenario:** A company needs to run multiple applications (web server, database, file server) on separate servers.
+  - **Without Virtualization:** Requires multiple physical servers, increasing cost and maintenance.
+  - **With Virtualization:** All applications can run on separate VMs on a single physical server.
+- **Advantages:**
+  - **Resource Sharing:** CPU, memory, and storage are shared among VMs.
+  - **Isolation:** Security and stability are improved.
+  - **Easy Management:** VMs can be managed, migrated, and backed up with ease.
+
+---
+
+## 5. Key Takeaways
+
+- **Virtual Machines are essential in modern IT infrastructure.**
+- **Virtualization enables efficient use of resources and simplifies management.**
+- **Hypervisors are the backbone of virtualization technology.**
+- **VMs provide isolation, flexibility, and cost savings.**
+
+---
+
+## 6. Summary Table
+
+| Concept                | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| Virtual Machine (VM)   | Software-based emulation of a physical computer                             |
+| Server                 | Provides resources/services to clients over a network                       |
+| Hypervisor             | Software that enables virtualization (Type 1 or Type 2)                     |
+| Virtualization         | Running multiple VMs on a single physical server                            |
+| Benefits               | Resource optimization, isolation, flexibility, cost savings                 |
+
+---
+
+## 7. Additional Resources
+
+- **Watch the full video:** [Day-3 | Virtual Machines Part-1 | Free DevOps Course](https://www.youtube.com/watch?v=lgUwYwBozow)
+- **Related notes:** [DevOps Zero to Hero Week 1 Overview](https://www.linkedin.com/posts/pratik-gote-516b361b3_devops-zero-to-hero-week-1-overview-activity-7208432533095518208-HuW3)
+- **GitHub repo:** [aws-devops-zero-to-hero](https://github.com/iam-veeramalla/aws-devops-zero-to-hero)
+
+---
+
+## 8. Next Steps
+
+- **Explore how to create and manage VMs on popular cloud platforms (AWS, Azure, GCP).**
+- **Practice setting up a VM using VirtualBox or VMware.**
+- **Learn about cloud-based VMs (EC2 in AWS, Virtual Machines in Azure).**
+- ** End of Day 3 **
