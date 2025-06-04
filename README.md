@@ -182,4 +182,118 @@ Abhishek often demonstrates how DevOps tools (like Jenkins, Docker, and Terrafor
 
 **Next up:** In following days, Abhishek dives into cloud platforms (AWS), automation tools (Terraform), and more hands-on DevOps practices[3][5].
 
+# Project Roles, Workflow, and Task Tracking in DevOps: The "15-Minute Delivery" Feature Example
+
+## Understanding the Team Roles
+
+Every successful software project relies on a team with clearly defined roles. Here’s a quick reference (from the image) for each role and their main responsibility:
+
+| **Role**            | **Responsibility**                                           |
+|---------------------|-------------------------------------------------------------|
+| Business Analyst    | Gathers and documents customer requirements.                |
+| Product Manager     | Defines the vision, goals, and priorities.                  |
+| Product Owner       | Manages backlog and converts vision into actionable stories.|
+| UI/UX Designer      | Designs user interface and user experience.                 |
+| Software Architect  | Designs technical system structure and frameworks.          |
+| Developers          | Build the actual product (UI, APIs, databases).             |
+| DBA                 | Designs and manages the database.                           |
+| Security Engineer   | Ensures product and infrastructure security.                |
+| QA Engineer         | Tests product quality and performance.                      |
+| DevOps Engineer     | Builds CI/CD pipelines and manages environments.            |
+| Release Manager     | Plans and manages releases.                                 |
+| SRE                 | Ensures uptime, performance, and reliability post-release.  |
+| Technical Writer    | Creates documentation for users and developers.             |
+
+---
+
+## Example Workflow: Building the "15-Minute Delivery" Feature
+
+Let’s say the company wants to launch a new **“15-minute delivery”** feature. Here’s how the workflow moves from idea to reality, step by step:
+
+1. **Customer/Stakeholder Request:**  
+   - The idea (15-min delivery) starts from customer needs or business goals.
+
+2. **Business Analyst:**  
+   - Talks to customers, gathers requirements, and documents what “15-minute delivery” should mean in practice.
+
+3. **Product Manager:**  
+   - Sets the vision: “We want to deliver groceries in 15 minutes to increase market share.”
+   - Prioritizes this feature among other company goals.
+
+4. **Product Owner:**  
+   - Breaks down the vision into actionable stories for the development team (e.g., “As a user, I want to see only items available for 15-min delivery”).
+
+5. **UI/UX Designer:**  
+   - Designs new screens or updates the app to highlight the 15-min delivery option.
+
+6. **Software Architect:**  
+   - Plans how the backend and frontend systems need to change to support fast delivery (e.g., real-time inventory, optimized routing).
+
+7. **Developers:**  
+   - Write code for new features: updating UI, APIs, delivery algorithms, etc.
+
+8. **DBA:**  
+   - Designs or updates database tables to track fast-delivery orders and inventory.
+
+9. **Security Engineer:**  
+   - Ensures new APIs and data flows are secure.
+
+10. **QA Engineer:**  
+    - Tests the new feature: Does it show up for users? Are only eligible products shown? Is delivery time tracked correctly?
+
+11. **DevOps Engineer:**  
+    - Sets up CI/CD pipelines to automate testing and deployment of the new feature.
+
+12. **Release Manager:**  
+    - Plans when and how to release the feature (e.g., phased rollout, canary release).
+
+13. **SRE (Site Reliability Engineer):**  
+    - Monitors the system after release to ensure the feature is reliable and fast.
+
+14. **Technical Writer:**  
+    - Updates user guides and developer documentation to reflect the new feature.
+
+---
+
+## How JIRA Helps in Tracking These Tasks
+
+**JIRA** is a powerful tool for managing and tracking all these tasks across the team:
+
+- **Epic Creation:**  
+  - The Product Owner creates an Epic called “15-Minute Delivery Feature.”
+
+- **Story Breakdown:**  
+  - The Epic is broken into smaller user stories (e.g., “Update UI for 15-min delivery,” “Optimize delivery routing algorithm”).
+
+- **Task Assignment:**  
+  - Each story/task is assigned to the appropriate team member (developer, QA, designer, etc.).
+
+- **Status Tracking:**  
+  - Tasks move through boards (To Do → In Progress → Code Review → Testing → Done), making progress visible to everyone.
+
+- **Collaboration:**  
+  - Team members can comment, attach designs, link related tasks, and update status in real time.
+
+- **Sprint Planning:**  
+  - The team uses JIRA to plan sprints, estimate effort, and track velocity.
+
+- **Reporting:**  
+  - JIRA provides burndown charts, cumulative flow diagrams, and other reports to monitor progress and identify bottlenecks.
+
+**Interactive Example:**  
+- The Product Owner creates a story:  
+  *“As a user, I want to see a badge for 15-min delivery items.”*
+- The UI/UX Designer attaches mockups to the story.
+- The Developer marks the story as “In Progress” when coding starts.
+- The QA Engineer moves it to “Testing” after development.
+- Once all acceptance criteria are met, the story is marked “Done.”
+
+---
+
+## Summary
+
+- Each role has a clear responsibility in delivering new features.
+- The workflow for a feature like “15-minute delivery” moves step by step from idea to release, involving the whole team.
+- **JIRA** acts as the central hub for planning, tracking, and collaborating on every task, ensuring nothing falls through the cracks and everyone stays aligned.
+- End of Day 2 !!
 
