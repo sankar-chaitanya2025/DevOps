@@ -384,6 +384,169 @@ Let’s say the company wants to launch a new **“15-minute delivery”** featu
 
 ---
 
+
+
+
+# Day-5: AWS CLI, EC2 Instance Connection, and AWS CloudFormation (CFT) – Comprehensive Notes
+
+## Overview
+
+This session introduces practical DevOps workflows using AWS tools: the AWS Command Line Interface (CLI) for automation, methods to connect to EC2 instances from your local computer and the AWS Console, and an introduction to AWS CloudFormation (CFT) for Infrastructure as Code (IaC).
+
+---
+
+## AWS Command Line Interface (CLI)
+
+### What is AWS CLI?
+
+- **AWS CLI** is a unified command-line tool for managing AWS services.
+- It enables automation, scripting, and streamlined management of AWS resources.
+- It’s essential for DevOps engineers for tasks like deployment, monitoring, and maintenance.
+
+### Installation and Configuration
+
+- **Download:**  
+  - **Windows:** Install via MSI installer or `pip install awscli`.
+  - **Linux/macOS:** Use package managers (`brew`, `apt`, `yum`) or `pip install awscli`.
+- **Configuration:**  
+  - Run `aws configure` in your terminal.
+  - Enter your AWS Access Key ID, Secret Access Key, default region (e.g., `ap-south-1`), and output format (e.g., `json`).
+- **Verification:**  
+  - Test with `aws s3 ls` or `aws ec2 describe-instances` to ensure setup is correct.
+
+### Key CLI Commands
+
+- **List EC2 instances:**  
+  `aws ec2 describe-instances`
+- **Start/Stop EC2 instance:**  
+  `aws ec2 start-instances --instance-ids `  
+  `aws ec2 stop-instances --instance-id `
+- **Create a new S3 bucket:**  
+  `aws s3 mb s3://`
+
+---
+
+## Connecting to EC2 Instances
+
+### Methods to Connect
+
+#### 1. **Via AWS Management Console (UI)**
+- **Steps:**
+  1. Go to the EC2 Dashboard.
+  2. Select your instance.
+  3. Click **Connect**.
+  4. Choose the connection method:  
+     - **SSH Client:** Use your private key (.pem) file.
+     - **EC2 Instance Connect:** Browser-based SSH.
+     - **Session Manager:** No need to open SSH port.
+- **Follow on-screen instructions** to establish your connection.
+
+#### 2. **Via Terminal (SSH)**
+- **Requirements:**
+  - Private key (.pem file).
+  - Security group allowing inbound SSH (port 22) from your IP.
+- **Command:**  
+  ```
+  ssh -i /path/to/your-key.pem ec2-user@
+  ```
+- **Note:** For Ubuntu instances, use `ubuntu` instead of `ec2-user`.
+
+#### 3. **Via AWS CLI and EC2 Instance Connect**
+- **Push your public key to the instance:**  
+  ```
+  aws ec2-instance-connect send-ssh-public-key \
+    --instance-id  \
+    --availability-zone  \
+    --instance-os-user  \
+    --ssh-public-key file://
+  ```
+- **Then SSH as usual.**
+
+### Verifying the Connection
+
+- **After login:**  
+  - Run basic commands like `ls`, `pwd`, or `touch testfile`.
+  - Check if you can create/modify files on the instance.
+
+---
+
+## AWS CloudFormation (CFT)
+
+### What is AWS CloudFormation?
+
+- **AWS CloudFormation** is an Infrastructure as Code (IaC) service.
+- It allows you to model and provision AWS resources using templates (JSON or YAML).
+- **Benefits:** Automation, repeatability, consistency, and easy management of infrastructure.
+
+### Key Concepts
+
+- **Template:** A file that defines the infrastructure and resources.
+- **Stack:** A collection of AWS resources created and managed as a single unit.
+- **Change Sets:** Preview changes before applying them.
+- **Rollback:** Automatically reverts changes if provisioning fails.
+
+### Getting Started
+
+- **Sample Template (YAML):**  
+  ```
+  AWSTemplateFormatVersion: "2010-09-09"
+  Resources:
+    MyEC2Instance:
+      Type: "AWS::EC2::Instance"
+      Properties:
+        ImageId: "ami-0abcdef1234567890"
+        InstanceType: "t2.micro"
+  ```
+- **Deploy a Stack via CLI:**  
+  ```
+  aws cloudformation create-stack \
+    --stack-name my-stack \
+    --template-body file://my-template.yaml
+  ```
+- **Check Stack Status:**  
+  ```
+  aws cloudformation describe-stacks --stack-name my-stack
+  ```
+
+### Use Cases
+
+- **Automate infrastructure setup** (VPC, EC2, RDS, etc.)
+- **Disaster recovery and multi-region deployments**
+- **Consistent environments for development, testing, and production**
+
+---
+
+## Summary Table
+
+| Feature/Service         | AWS CLI                                   | AWS Console (UI)                  | AWS CloudFormation (CFT)           |
+|------------------------|-------------------------------------------|-----------------------------------|------------------------------------|
+| **Purpose**            | Command-line automation                   | Web-based management               | Infrastructure as Code (IaC)       |
+| **Automation**         | Yes (scripts, cron jobs)                  | Manual (point-and-click)          | Yes (templates, stacks)            |
+| **Connect to EC2**     | SSH, EC2 Instance Connect via CLI         | SSH, EC2 Instance Connect via UI  | N/A (provisions EC2, not connects) |
+| **Resource Management**| All AWS services                          | All AWS services                  | All AWS services                   |
+| **Learning Curve**     | Moderate (requires CLI knowledge)         | Low (intuitive interface)         | Moderate (requires template syntax)|
+
+---
+
+## Additional Resources
+
+- **AWS CLI Documentation:** [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/)
+- **AWS CloudFormation Templates Examples:** [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/sample-templates-services-us-west-2.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/sample-templates-services-us-west-2.html)
+- **EC2 Instance Connect Guide:** [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect.html)
+- **Community Support:** Join relevant Discord or Slack channels for live help.
+
+---
+
+## Practical Tips
+
+- **Practice connecting to EC2 instances using both UI and CLI.**
+- **Experiment with AWS CloudFormation templates for automating infrastructure.**
+- **Regularly back up your AWS credentials and private keys.**
+- **Use IAM roles and policies for secure access management.**
+```
+
+
+
 ## 8. Next Steps
 
 - **Explore how to create and manage VMs on popular cloud platforms (AWS, Azure, GCP).**
