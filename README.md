@@ -545,6 +545,175 @@ This session introduces practical DevOps workflows using AWS tools: the AWS Comm
 - **Use IAM roles and policies for secure access management.**
 ```
 
+```
+# Day-6 | Linux & Shell Scripting - Complete DevOps Course Notes
+
+Welcome back everyone! Today is Day 6 of our DevOps journey, and we're diving deep into **Linux & Shell Scripting fundamentals**. This is going to be an exciting session where we'll understand why shell scripting is absolutely crucial for DevOps engineers.
+
+## Understanding Shell Scripting Fundamentals
+
+Shell scripting is essentially **the way you communicate with your operating system**. Think about it - in Windows, you have a beautiful graphical user interface where you can click and navigate through folders. But here's the reality: **most of the time when you're working in software organizations, you don't have a graphical user interface for your servers**.
+
+When you have issues on your production server, there's no GUI to help you navigate and troubleshoot. You need to do everything through **command line interface**, and this is where shell commands become your best friend.
+
+## Why Shell Scripting is Essential for DevOps
+
+**Shell scripting is a fundamental skill for DevOps professionals**. It empowers you to:
+- **Automate repetitive tasks**
+- **Manage system configurations** 
+- **Enhance overall efficiency** in the software development lifecycle
+
+The beautiful thing about shell commands is that they are **99.9% common across different Linux distributions** - whether you're using CentOS, Fedora, Debian, or Ubuntu, the shell commands we use as DevOps engineers remain mostly the same.
+
+## Setting Up Your Environment
+
+For this course, I'm using a **Mac laptop with bash installed**. By default, Mac comes with zsh, but I recommend learning **bash** because it's one of the most popular and widely used shells. Instead of learning ksh or other shells, just focus on bash - you'll use this throughout your DevOps journey.
+
+### Connecting to AWS Instance
+
+Let me show you how to connect to the AWS instance we created in the previous class:
+
+```
+ssh -i your-key-pair.pem ubuntu@your-public-ip
+```
+
+We're using the **key value pair** we created earlier along with the **public IP of the EC2 instance** to log in. Since we created an Ubuntu image, the default user is "ubuntu".
+
+## What is Shell Scripting?
+
+**Shell scripting is the art of writing scripts (sets of commands) in a shell language to automate tasks or to interact with the operating system**. In a DevOps context, shell scripts are essential for:
+- **Deploying applications**
+- **Configuring systems**
+- **Monitoring infrastructure**
+- **Automating routine processes** like backups and log management
+
+## The Shebang Line - #!/bin/bash
+
+The **shebang line is essential in shell scripting** as it tells the operating system **which shell to use to interpret the commands** in the script. Different shells have different syntax and built-in commands, so it's important to specify the correct shell in the shebang line to ensure your script runs as intended.
+
+**The shebang #!/bin/bash specifies that the Bash shell should interpret the script**. While you can use #!/bin/sh, it's good practice to use #!/bin/bash to ensure consistency.
+
+## Writing Your First Shell Script
+
+Let's start with a simple example:
+
+```
+#!/bin/bash
+echo "I will complete #90DaysOfDevOps challenge"
+```
+
+To run this script:
+1. Save it to a file (e.g., `first_script.sh`)
+2. Make it executable: `chmod +x first_script.sh`
+3. Run it: `./first_script.sh`
+
+## Taking User Input and Command Line Arguments
+
+Here's a more advanced example that demonstrates both user input and command-line arguments:
+
+```
+#!/bin/bash
+
+# Taking user input
+echo "Enter your name: "
+read username
+echo "Hello, $username!"
+
+# Using command-line arguments
+echo "You provided $# arguments"
+echo "The first argument is: $1"
+echo "The second argument is: $2"
+echo "All arguments are: $*"
+```
+
+You can run this script with arguments like: `./input_script.sh Amit DevOps`
+
+## Conditional Statements
+
+**Conditional statements are vital in shell scripting** for making decisions and responding to different situations:
+
+```
+#!/bin/bash
+
+# Define two numbers
+num1=5
+num2=10
+
+if [ $num1 -eq $num2 ]; then
+    echo "The numbers are equal."
+elif [ $num1 -lt $num2 ]; then
+    echo "Number 1 is less than Number 2."
+else
+    echo "Number 1 is greater than Number 2."
+fi
+```
+
+## File Permissions and Execution
+
+**Because of security in Linux, the creator of shell script does not get execution permission by default**. To run shell scripts, you need to:
+
+1. **Give execution permission**: `chmod +x script-name` or `chmod 777 script-name`
+2. **Run the script**: `./your-script-name`
+
+You can also run scripts using: `bash script-name` or `/bin/sh script-name`
+
+## Exit Status and Error Handling
+
+Every command in Linux returns an **exit status**:
+- **Return value 0**: Command successful
+- **Return value >0**: Command failed or error occurred
+
+You can check the exit status using `echo $?`
+
+## Real-World DevOps Applications
+
+### AWS Resource Monitoring Script
+
+Here's a practical example for DevOps engineers - **writing a shell script to report AWS resource usage**:
+
+```
+#!/bin/bash
+# AWS Resource Tracker Script
+echo "AWS Resource Usage Report"
+echo "========================"
+
+# List EC2 instances
+aws ec2 describe-instances
+
+# List S3 buckets  
+aws s3 ls
+
+# List Lambda functions
+aws lambda list-functions
+
+# List IAM users
+aws iam list-users
+```
+
+This script can be **integrated with CronJob** to automatically generate reports at scheduled times.
+
+## Key Takeaways for DevOps Engineers
+
+1. **Shell scripting is essential** for automating DevOps tasks
+2. **Bash is the recommended shell** for consistency across environments
+3. **Always use proper shebang lines** to specify the interpreter
+4. **File permissions are crucial** - always set execute permissions
+5. **Error handling and exit status** help in debugging and monitoring
+6. **Real-world applications** include AWS resource monitoring and automation
+
+## Next Steps
+
+In our upcoming sessions, we'll dive deeper into:
+- **Advanced shell scripting concepts**
+- **Automation scripts for CI/CD pipelines**
+- **Integration with cloud services**
+- **Best practices for production environments**
+
+Remember, shell scripting is not just about writing commands - it's about **thinking like a DevOps engineer** and automating everything that can be automated. Practice these concepts, and you'll see how powerful shell scripting can be in your DevOps journey!
+
+Keep practicing, and I'll see you in the next session where we'll explore more advanced topics. Happy scripting!
+```
+
 
 
 ## 8. Next Steps
