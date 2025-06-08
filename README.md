@@ -714,11 +714,121 @@ Remember, shell scripting is not just about writing commands - it's about **thin
 Keep practicing, and I'll see you in the next session where we'll explore more advanced topics. Happy scripting!
 ```
 
-
-
 ## 8. Next Steps
 
 - **Explore how to create and manage VMs on popular cloud platforms (AWS, Azure, GCP).**
 - **Practice setting up a VM using VirtualBox or VMware.**
 - **Learn about cloud-based VMs (EC2 in AWS, Virtual Machines in Azure).**
 - ** End of Day 3 **
+
+```
+# Shell Scripting for DevOps - Zero to Hero (Part 1) - Abhishek Veeramalla Course Notes
+
+This is a beginner-friendly tutorial for shell scripting specifically for DevOps engineers with focus on practical shell scripting applications in real DevOps scenarios. The course is designed to help with interview preparation where interviewers ask about practical use cases rather than individual commands. The tutorial teaches shell scripts that DevOps engineers actually use in their day-to-day work. We use bash scripting because bash is available across all operating systems, is the most widely used shell in the industry, is standard in most Linux distributions, and is essential for DevOps automation.
+
+## The Shebang Line
+
+Every shell script must start with a shebang (`#!`) followed by the interpreter path. This is a common interview question. The difference between `#!/bin/bash` and `#!/bin/sh` is that bash has more features while sh is more portable but limited. The shebang ensures scripts run consistently across different environments.
+
+```
+#!/bin/bash
+# This tells the system to use bash interpreter
+
+#!/bin/sh
+# This uses the system's default shell
+```
+
+## Essential Linux Commands for DevOps
+
+### File Operations
+```
+# Create files
+touch filename.sh
+
+# Edit files using vim
+vim filename.sh
+
+# Check file permissions
+ls -la filename.sh
+
+# Make script executable
+chmod +x filename.sh
+```
+
+### System Monitoring Commands
+
+**CPU Monitoring** - Used to verify server capacity before deploying applications and important for containerized applications where CPU limits are set:
+```
+# Check number of CPU cores
+nproc
+```
+
+**Memory Monitoring** - Shows total, used, and available memory, critical for preventing out-of-memory issues, and used before deployments and for troubleshooting:
+```
+# Check memory usage
+free -h
+```
+
+**Disk Space Monitoring** - Shows filesystem usage and available space, prevents disk space issues from log files, and important for database and container storage monitoring:
+```
+# Check disk usage
+df -h
+```
+
+**Process Monitoring** - Used for monitoring application processes, identifying resource-hungry processes, and troubleshooting performance issues:
+```
+# View running processes
+top
+
+# Check specific processes
+ps aux | grep processname
+```
+
+## Practical Example: Node Health Check Script
+
+Abhishek demonstrated creating a simple shell script for node health monitoring:
+
+```
+#!/bin/bash
+
+# Basic node health check
+echo "=== Node Health Check ==="
+echo "Date: $(date)"
+echo "Hostname: $(hostname)"
+
+# Check CPU cores
+echo "CPU Cores: $(nproc)"
+
+# Check memory
+echo "Memory Usage:"
+free -h
+
+# Check disk space
+echo "Disk Usage:"
+df -h
+
+echo "=== Health Check Complete ==="
+```
+
+## Script Execution
+
+```
+# Make the script executable
+chmod +x health_check.sh
+
+# Run the script
+./health_check.sh
+```
+
+## Key Learning Objectives
+
+The video covered understanding what shell scripting is and why it's important for DevOps, learning the basics of bash scripting, understanding the shebang line and its importance, learning essential Linux commands for system monitoring, creating a practical health monitoring script, and understanding how to make scripts executable and run them.
+
+## Interview Preparation Points
+
+Interviewers focus more on practical applications than individual commands. Important to understand the difference between different shell interpreters, know how to create executable scripts, and be able to explain real-world use cases for shell scripting in DevOps.
+
+## Course Structure
+
+This is Part 1 of a comprehensive series that builds foundational knowledge for more advanced topics. The course is designed to be practical and interview-focused where each part builds upon the previous knowledge. This video specifically focused on establishing the groundwork for shell scripting in DevOps context, with emphasis on practical skills that can be immediately applied in real-world scenarios.
+```
